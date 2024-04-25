@@ -1,0 +1,17 @@
+canvas{
+    border: 2px solid black;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#ray {
+    width: 50vw;
+    height: 50vh;
+    text-align: center;
+}
