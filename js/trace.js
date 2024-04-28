@@ -1,4 +1,3 @@
-
 class ray3 {
     constructor(origin, direction) {
         this.ori = origin;
@@ -9,8 +8,7 @@ class ray3 {
         // Linear eq: ori + t * dir
         return this.ori.add(this.dir.mul(t));
     };
-
-}
+};
 
 
 class hitRecord {
@@ -25,19 +23,19 @@ class hitRecord {
     setFaceNormal(ray, outward_normal) {
         this.front_face = ray.dir.dot(outward_normal) < 0; // <0 means ray directs against surface from the front
         this.normal = this.front_face ? outward_normal : outward_normal.mul(-1);
-    }
+    };
 };
 
 
 // List of balls in the scene
 class hittableList {
     constructor() {
-        this.list = []
+        this.list = [];
     };
 
     add(hittable) {
         this.list.push(hittable);
-    }
+    };
 
     hit(ray, t_interval, rec) {
         let temp_rec = new hitRecord(); // Should record the hit info of the nearest object
@@ -50,8 +48,8 @@ class hittableList {
                 rec = temp_rec;
             }
         }
-        return [hit_something, rec]; // this function was not writing rec into the outside one so we gotte return it here
-    }
+        return [hit_something, rec]; // this function was not writing rec into the outside one so we got to return it here
+    };
 };
 
 
@@ -59,7 +57,7 @@ class interval {
     constructor(min, max) {
         this.min = min;
         this.max = max;
-    }
+    };
 
     contains(x) {
         return (this.min <= x) && (x <= this.max);
@@ -67,14 +65,14 @@ class interval {
 
     surrounds(x) {
         return (this.min < x) && (x < this.max);
-    }
+    };
 
     clamp(x) {
         if (x < this.min) {
             return this.min;
         } else if (x > this.max) {
-            return this.max
-        };
-        return x
-    }
-}
+            return this.max;
+        }
+        return x;
+    };
+};
