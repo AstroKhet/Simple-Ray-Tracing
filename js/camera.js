@@ -7,15 +7,15 @@ class camera {
         this.rayCanv = new canv(this.width, this.height, "image-output");
 
         // Camera settings
-        this.camera_center = new vec3(4, 2, 6);
+        this.camera_center = new vec3(0, 0, 2);
         this.vertical_up = new vec3(0, 1, 0);
         this.look_at = new vec3(0, 0, 0);
         this.focal_distance = (this.look_at.sub(this.camera_center)).length();
 
-        this.defocus_angle = (Math.PI / 180) * 0.5;
+        this.defocus_angle = (Math.PI / 180) * 0.6;
 
         // Viewport
-        this.vertical_view_angle = (Math.PI / 180) * 50;
+        this.vertical_view_angle = (Math.PI / 180) * 35;
         this.vp_height = 2 * Math.tan(this.vertical_view_angle / 2) * this.focal_distance;
         this.vp_width = this.vp_height * (this.width / this.height);
 
@@ -43,7 +43,7 @@ class camera {
         this.defocus_disk_v = this.v.mul(this.defocus_radius);
 
         // Rendering settings
-        this.samples_per_pixel = 1500;
+        this.samples_per_pixel = 250;
         this.pixel_sample_scale = 1 / this.samples_per_pixel;
         this.max_depth = 15;
     };
@@ -124,7 +124,6 @@ class camera {
 
         // Blue sky background
         let a = 0.5 * (ray.dir.unit().y + 1);
-        return new colour(0, 0, 0);
         return (new colour(1, 1, 1).mul(1 - a)).add(new colour(0.5, 0.7, 1.0).mul(a));
     };
 
