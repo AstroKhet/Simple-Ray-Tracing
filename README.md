@@ -31,6 +31,3 @@ Made in reference with: [Ray Tracing in One Weekend](raytracing.github.io/books/
 - Light (and everything else combined)
 
 ![Image 5](saved/light.png)
-
-- The last image feels surreal, almost like an old couple viewing their last sunset
-- I think its a wonderful way to end this project
